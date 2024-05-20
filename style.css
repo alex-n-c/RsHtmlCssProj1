@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*define que os preenchimentos será pelas bordas*/
+}
+
+:root {
+  --text-color: #ffffff;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --social-links-color-hover: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: #000000;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.05);
+  --social-links-color-hover: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;      cover = cobre toda area visivel
+  */
+
+  /*Forma resumida  background: color image repeat position/size*/
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /*height: 712px;  altura geralmente segue o tamanho da pagina  para ser fluida*/
+  /*
+    margin-top: 56px;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+  */
+  margin: 56px auto 0px; /*top 56 bottom 0 e laterais auto*/
+
+  /*border: 1px solid red;*/
+  padding: 0px 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  /* altura geralmente segue o tamanho da pagina para ser fluida*/
+  /* img - Em elementos inline não é possível aplicar margin auto
+      no #profile  aplicou  text-align: center;
+
+  display: block;
+  margin: auto;*/
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  left: 0;
+  z-index: 1;
+
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/*Links*/
+ul {
+  list-style: none;
+  display: flex; /*vai ocupar todo o espaço dividindo os espaço com os elemento li*/
+  flex-direction: column; /* por padrão é  row */
+  gap: 16px; /*espaçamento entre os elementos*/
+  padding: 24px 0px;
+}
+
+ul li a {
+  display: flex; /*vai ocupar todo o espaço. elemento a*/
+  align-items: center; /*alinha ao meio no eixo y*/
+  justify-content: center; /*alinha ao meio no eixo x*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.5s; /* elemento (background) e depois o tempo (0.5s)*/
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0px;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 16px;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background-color: var(--social-links-color-hover);
+}
+
+footer {
+  text-align: center;
+  padding: 24px 0px;
+  font-size: 16px;
+}
